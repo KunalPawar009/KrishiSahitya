@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiSahitya</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scipt.js" defer></script>
+</head>
+<body class="home-page"> <!-- Add the home-page class here -->
+    <header>
+        <!-- Main Navigation Bar -->
+        <div class="navbar">
+            <div class="logo">KrishiSahitya</div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search agricultural products...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <div class="user-options">
+                <a href="/login.html" class="login-btn">Login/Sign Up</a>
+                <a href="/login.html" class="sell-btn">Sell</a>
+            </div>
+        </div>
+        
+        <!-- Sub-Navigation Bar -->
+        <div class="sub-navbar">
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About Us</a>
+            <a href="/contact-us.html">Contact Us</a>
+            <a href="#" onclick="redirectToLogin()">Tractors</a>
+            <a href="#" onclick="redirectToLogin()">Tools</a>
+            <a href="#" onclick="redirectToLogin()">Irrigation</a>
+            <a href="#" onclick="redirectToLogin()">Fertilizers</a>
+        </div>
+    </header>
+
+    <!-- Recommendations Section -->
+    <div class="recommendations">
+        <h2>Recommended Agricultural Products</h2>
+        <div class="product-grid">
+            <div class="product-card" onclick="redirectToLogin()">
+                <img src="assets/axe.jpg" alt="Axe">
+                <h3>Axe</h3>
+                <p>Durable and sharp for cutting trees</p>
+                <p class="price">₹1,200</p>
+            </div>
+            <div class="product-card" onclick="redirectToLogin()">
+                <img src="/image.png" alt="Tractor">
+                <h3>Tractor</h3>
+                <p>Powerful tractors for farming needs</p>
+                <p class="price">₹5,50,000</p>
+            </div>
+            <div class="product-card" onclick="redirectToLogin()">
+                <img src="assets/irrigation.jpg" alt="Irrigation Tool">
+                <h3>Irrigation Tool</h3>
+                <p>Efficient irrigation equipment</p>
+                <p class="price">₹3,500</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

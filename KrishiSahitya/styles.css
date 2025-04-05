@@ -1,0 +1,816 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    opacity: 0; /* Initial state for fade-in */
+    transition: opacity 1s ease; 
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header Margin */
+header {
+    margin-bottom: 10px;
+}
+
+/* Main Navigation Bar */
+.navbar {
+    background-color: #232F3E; /* Dark theme */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Section */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+.logo:hover {
+    color: #febd69; /* Highlight effect */
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    max-width: 60%; /* Increased width to make the search bar larger */
+    height: 48px; /* Increased height for a more prominent look */
+    margin: 0 20px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #282626;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 12px 18px; /* Increased padding for a more spacious feel */
+    border: none;
+    outline: none;
+    font-size: 18px; /* Slightly bigger font size for better readability */
+    color: #fff;
+    background-color: transparent;
+    caret-color: #febd69;
+    text-align: left;
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+    font-style: italic;
+    text-align: left;
+}
+
+.search-bar button {
+    background-color: #febd69;
+    border: none;
+    color: black;
+    padding: 0 18px; /* Increased padding for better button fit */
+    font-size: 18px; /* Slightly larger font size */
+    font-weight: bold;
+    cursor: pointer;
+    height: 100%; /* Match the search bar height */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.search-bar button:hover {
+    background-color: #f4a950;
+    transform: scale(1.05);
+}
+
+
+/* User Options Section */
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Reduced spacing between buttons */
+    height: 48px; /* Matches the height of the navbar */
+    justify-content: center; /* Center buttons */
+}
+
+.login-btn,
+.sell-btn {
+    background-color: #febd69;
+    border: none;
+    color: black;
+    font-size: 15px; /* Slightly smaller font for compact fit */
+    font-weight: bold;
+    border-radius: 4px; /* Subtle rounding for a clean look */
+    padding: 6px 16px; /* Reduced padding for compact sizing */
+    height: 40px; /* Slightly smaller height to align with navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Ensure text stays centered */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    line-height: 1; /* Ensures text is vertically aligned */
+}
+
+.login-btn:hover,
+.sell-btn:hover {
+    background-color: #f4a950; /* Slightly darker shade on hover */
+    transform: scale(1.05); /* Hover scaling effect */
+}
+
+.login-btn:active,
+.sell-btn:active {
+    transform: scale(0.95); /* Pressed effect */
+    background-color: #e09c3a; /* Deeper active state */
+}
+
+/* Responsive Design for Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Align everything centrally on smaller screens */
+    }
+
+    .search-bar {
+        max-width: 100%; /* Full width on smaller screens */
+        margin: 10px 0;
+    }
+
+    .user-options {
+        gap: 8px; /* Reduced gap for compact layout */
+        justify-content: center; /* Center buttons on smaller screens */
+    }
+
+    .login-btn,
+    .sell-btn {
+        font-size: 14px; /* Slightly smaller font for smaller screens */
+        padding: 6px 14px; /* Compact padding */
+        height: 38px; /* Slightly smaller height */
+        width: auto; /* Flexible button width */
+    }
+}
+
+
+
+/* Sub-Navigation Bar */
+.sub-navbar {
+    background-color: #37475A;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.sub-navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.sub-navbar a:hover {
+    color: #febd69;
+}
+
+/* Recommendations Section */
+.recommendations {
+    padding: 20px;
+}
+
+.recommendations h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+.product-card .price {
+    color: #00a859;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1, h3 {
+    color: #333;
+  }
+  
+  p {
+    color: #555;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  a:hover {
+    color: #007bff;
+  }
+  
+ /* Existing styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1, h3 {
+    color: #333;
+  }
+  
+  p {
+    color: #555;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  a:hover {
+    color: #007bff;
+  }
+  
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1, h3 {
+    color: #333;
+  }
+  
+  p {
+    color: #555;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  a:hover {
+    color: #007bff;
+  }
+  
+  /* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4070f4;
+  column-gap: 30px;
+}
+
+.form {
+  position: absolute;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 6px;
+  background: #FFF;
+}
+
+.form.signup {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.forms.show-signup .form.signup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.forms.show-signup .form.login {
+  opacity: 0;
+  pointer-events: none;
+}
+
+header {
+  font-size: 28px;
+  font-weight: 600;
+  color: #232836;
+  text-align: center;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.form .field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.field input,
+.field button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.field input {
+  outline: none;
+  padding: 0 15px;
+  border: 1px solid#CACACA;
+}
+
+.field input:focus {
+  border-bottom-width: 2px;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.field button {
+  color: #fff;
+  background-color: #0171d3;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.field button:hover {
+  background-color: #016dcb;
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-link span,
+.form-link a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #232836;
+}
+
+.form a {
+  color: #0171d3;
+  text-decoration: none;
+}
+
+.form-content a:hover {
+  text-decoration: underline;
+}
+
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 36px 0;
+  background-color: #d4d4d4;
+}
+
+.line::before {
+  content: 'Or';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF;
+  color: #8b8b8b;
+  padding: 0 15px;
+}
+.field.input-field {
+  margin-top: 20px;
+}
+
+.media-options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.facebook {
+  color: #fff;
+  background-color: #4267b2;
+}
+
+a.facebook .facebook-icon {
+  height: 28px;
+  width: 28px;
+  color: #0171d3;
+  font-size: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.facebook-icon,
+img.google-img {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+img.google-img {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
+a.google {
+  border: 1px solid #CACACA;
+}
+
+a.google span {
+  font-weight: 500;
+  opacity: 0.6;
+  color: #232836;
+}
+
+@media screen and (max-width: 400px) {
+  .form {
+    padding: 20px 10px;
+  }
+
+}
+  
+/* Navbar Styles */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    float: left;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navbar a.active {
+    background-color: #007bff;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+/* Contact Page Styles */
+/* Main Contact Container */
+.contact-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Section Header */
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Flex Layout for Contact Details */
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Contact Info Section */
+.contact-info {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Contact Form Section */
+.contact-form {
+    flex: 2;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Label Styling */
+label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Input and Textarea Styling */
+input,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input:focus,
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px; /* Reduced padding for better fit */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 0 auto; /* Center button horizontally */
+    line-height: 1; /* Ensures no extra vertical spacing */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.submit-btn:active {
+    background-color: #003f88;
+    transform: scale(0.95);
+}
+
+/* Align Button Text Properly */
+.submit-btn span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        margin-bottom: 20px;
+    }
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
+/* About Us Section Styles */
+.about-us {
+    background-color: #e7eceb;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+}
+
+.about-us .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #e7eceb;
+}
+
+.about-us h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 60%;
+}
+
+.team {
+    flex: 1;
+    max-width: 35%;
+    margin-left: 5%;
+}
+
+.team h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.member {
+    text-align: center;
+    width: 30%;
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.member h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.member p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .about-us .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-text, .team {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .team-members {
+        flex-direction: column;
+    }
+
+    .member {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
